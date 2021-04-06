@@ -11,6 +11,13 @@ export const Box = styled.section`
 `
 export const Logo = styled.img`
   margin: 0 auto;
+  width:100%;
+  max-width: 200px;
+  height:100%;
+
+  @media screen and (max-width: 769px) {
+    max-width: 150px;
+  }
 `;
 
 export const FormLogin = styled.form`
@@ -25,9 +32,10 @@ margin-top:1rem;
 border-radius: 10rem;
 font-size: 1rem;
 width:80%;
+min-width: 300px;
 height:2rem;
 border:1px solid rgb(128 128 128 / 11%);
-backgound-color: white;
+background: white;
 padding-left:1rem;
 box-shadow: 0 4px 10px 0 rgb(128 128 128 / 11%);
 
