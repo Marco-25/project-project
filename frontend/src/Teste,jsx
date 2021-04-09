@@ -1,0 +1,52 @@
+import React from 'react';
+
+const Test: React.FC = () => {
+
+          function addMarkerToGroup(group, coordinate, html) {
+        var marker = new H.map.Marker(coordinate);
+        marker.setData(html);
+        group.addObject(marker);
+        }
+
+        function addInfoBubble(map) {
+        var group = new H.map.Group();
+
+        map.addObject(group);
+        group.addEventListener('tap', function (evt) {
+
+            var bubble =  new H.ui.InfoBubble(evt.target.getGeometry(), {
+
+            content: evt.target.getData()
+            });
+
+            H.mapRef.ui.addBubble(bubble);
+        }, false);
+
+        addMarkerToGroup(group, {lat:-22.2154766, lng:-49.6538883},`
+            <div style="width:250px">
+            <a style="text-decoration:none" href="http://www.fulltime.com.br" target="_blank"> <h3>Fulltime</h3> </a>
+            <p> Av. Pres. Vargas, 70 - Centro </p>
+            <p>Aberto das 08:00 às 18:00</p>
+            </div>
+        `);
+
+        addMarkerToGroup(group, {lat:-22.2141685, lng: -49.6477935},`
+            <div style="width:250px">
+                <h3>Lago Artificial Prof. J. K. Williams</h3>
+            <p>Vinte e Sete de Dezembro, 394 </p>
+            </div>
+        `);
+
+        addMarkerToGroup(group, {lat:-22.2137373, lng:-49.6538541},`
+            <div style="width:250px">
+            <h3>Tênis clube</h3>
+            <p>Carlos Gomes, 77</p>
+            </div>
+        `);
+        }
+  return(
+    <span></span>
+  );
+}
+
+export default Test;
