@@ -25,6 +25,7 @@ const Map2 = () => {
 
     const addInfoBubble = React.useCallback((map)=>  {
         const H = window.H;
+        const ui = H.ui.UI;
         const group = new H.map.Group();
 
         map.addObject(group);
@@ -34,8 +35,7 @@ const Map2 = () => {
             let bubble =  new H.ui.InfoBubble(evt.target.getGeometry(), {
                 content: evt.target.getData()
             });
-
-            H.ui.UI.addBubble(bubble);
+            ui.addBubble(bubble)
             console.log('clicou')
         });
 

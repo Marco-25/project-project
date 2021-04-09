@@ -19,6 +19,7 @@ const Menu: React.FC = () => {
                 <LogoMenu src="images/logo_7112.png" alt="logo menu"/>
                 <Link to="/dashboard"> <i className="fas fa-tachometer-alt"></i> Dashboard </Link>
                 <Link to="/map" > <i className="fas fa-globe-americas"></i> Mapa </Link>
+                <Link to="/map2" > <i className="fas fa-globe-americas"></i> Mapa 2 </Link>
                 <Link to="/test" ><i className="fas fa-edit"></i>Cadastro </Link>
             </MenuDesktop>
             }
