@@ -23,34 +23,34 @@ const Map2 = () => {
         group.addObject(marker);
     }
 
-    const addInfoBubble = React.useCallback((map)=>  {
+    const addInfoBubble = React.useCallback((map) => {
         const H = window.H;
-        const ui = H.ui.UI;
         const group = new H.map.Group();
 
         map.addObject(group);
 
-        group.addEventListener('tap', function (evt) {
+        group.addEventListener('tap', (evt) => {
             evt.preventDefault();
-            let bubble =  new H.ui.InfoBubble(evt.target.getGeometry(), {
+            let bubble = new H.ui.InfoBubble(evt.target.getGeometry(), {
                 content: evt.target.getData()
             });
-            ui.addBubble(bubble)
+            // window.ui.addBubble(bubble)
+            bubble.open(this)
             console.log('clicou')
         });
 
-        addMarkerToGroup(group, {lat:-22.2154766, lng:-49.6538883},
+        addMarkerToGroup(group, { lat: -22.2154766, lng: -49.6538883 },
             '<div><a href="http://www.mcfc.co.uk" target="_blank">Fulltime</a>' +
             '</div><div >City of Manchester Stadium<br>Capacity: 48,000</div>');
 
-        addMarkerToGroup(group, {lat:-22.2165197, lng:-49.6486929},
+        addMarkerToGroup(group, { lat: -22.2165197, lng: -49.6486929 },
             '<div><a href="http://www.liverpoolfc.tv" target="_blank">Liverpool</a>' +
             '</div><div >Anfield<br>Capacity: 45,362</div>');
 
-    },[]);
+    }, []);
 
     React.useEffect(() => {
- 
+
         if (!mapRef.current) return;
         const H = window.H;
         const platform = new H.service.Platform({
@@ -67,7 +67,7 @@ const Map2 = () => {
         new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
         H.ui.UI.createDefault(hMap, defaultLayers);
 
-    
+
         addInfoBubble(hMap);
 
     }, [addInfoBubble, mapRef]);
@@ -77,7 +77,7 @@ const Map2 = () => {
         <>
             <Menu />
             <ContainerMap className="map" ref={mapRef}>
-                
+
             </ContainerMap>
         </>
     );

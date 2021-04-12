@@ -21,7 +21,7 @@ const Map3 = () => {
     function addDomMarker(map) {
         const H = window.H;
         const outerElement = document.createElement('div'),
-        innerElement = document.createElement('div');
+            innerElement = document.createElement('div');
 
         innerElement.style.color = 'red';
         innerElement.style.backgroundColor = 'transparent';
@@ -48,46 +48,46 @@ const Map3 = () => {
         };
 
         const domIcon = new H.map.DomIcon(outerElement, {
-            onAttach: function(clonedElement, domIcon, domMarker) {
-            clonedElement.addEventListener('mouseover', changeOpacity);
-            clonedElement.addEventListener('mouseout', changeOpacityToOne);
+            onAttach: function (clonedElement, domIcon, domMarker) {
+                clonedElement.addEventListener('mouseover', changeOpacity);
+                clonedElement.addEventListener('mouseout', changeOpacityToOne);
 
-            clonedElement.addEventListener('click', () => {
-                console.log("clicou");
-                setModal(true);
-            });
-        },
-        onDetach: function(clonedElement, domIcon, domMarker) {
-        clonedElement.removeEventListener('mouseover', changeOpacity);
-        clonedElement.removeEventListener('mouseout', changeOpacityToOne);
-        }
-  });
+                clonedElement.addEventListener('click', () => {
+                    console.log("clicou");
+                    setModal(true);
+                });
+            },
+            onDetach: function (clonedElement, domIcon, domMarker) {
+                clonedElement.removeEventListener('mouseover', changeOpacity);
+                clonedElement.removeEventListener('mouseout', changeOpacityToOne);
+            }
+        });
 
-  const bearsMarker = new H.map.DomMarker({lat:-22.2154766, lng:-49.6538883}, {
-        icon: domIcon
-    });
-    map.addObject(bearsMarker);
+        const bearsMarker = new H.map.DomMarker({ lat: -22.2154766, lng: -49.6538883 }, {
+            icon: domIcon
+        });
+        map.addObject(bearsMarker);
     }
 
     React.useEffect(() => {
- 
-    if (!mapRef.current) return;
-    const H = window.H;
-    const platform = new H.service.Platform({
-        apikey: "wsnXhbk9rgSNwv7jNf1-9rGy39M2IIvnpdWt7IGDDbQ"
-    });
 
-    const defaultLayers = platform.createDefaultLayers();
-    const hMap = new H.Map(mapRef.current, defaultLayers.vector.normal.map, {
-        center: { lat: -22.2156851, lng: -49.6537427 },
-        zoom: 14,
-        pixelRatio: window.devicePixelRatio || 1
-    });
+        if (!mapRef.current) return;
+        const H = window.H;
+        const platform = new H.service.Platform({
+            apikey: "wsnXhbk9rgSNwv7jNf1-9rGy39M2IIvnpdWt7IGDDbQ"
+        });
 
-    new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
-    H.ui.UI.createDefault(hMap, defaultLayers);
-   
-    addDomMarker(hMap);
+        const defaultLayers = platform.createDefaultLayers();
+        const hMap = new H.Map(mapRef.current, defaultLayers.vector.normal.map, {
+            center: { lat: -22.2156851, lng: -49.6537427 },
+            zoom: 14,
+            pixelRatio: window.devicePixelRatio || 1
+        });
+
+        new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
+        H.ui.UI.createDefault(hMap, defaultLayers);
+
+        addDomMarker(hMap);
 
     }, [mapRef]);
 
@@ -104,8 +104,8 @@ const Map3 = () => {
         <>
             <Menu />
             {modal && modall()}
-            <ContainerMap className="map" ref={mapRef}> 
-            
+            <ContainerMap className="map" ref={mapRef}>
+
             </ContainerMap>
         </>
     );
