@@ -22,12 +22,13 @@ export interface IPropsEditClient {
 
 
 export interface IClient {
+    id: number;
     company_name: string;
     fantasy_name: string;
     type: string;
     released: string;
-    CPF: string;
-    CNPJ: string;
+    CPF?: string;
+    CNPJ?: string;
     address: string;
     district: string;
     City: string;
