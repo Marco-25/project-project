@@ -34,4 +34,14 @@ export interface IClient {
     Zip_code: string;
     state: string;
     country: string;
+
+    contact_name: string;
+    email: string;
+    observation: string;
+
+    DDI_telephone: string;
+    telephone_number: string;
+    DDI_cell: string;
+    cell: string;
+
 }

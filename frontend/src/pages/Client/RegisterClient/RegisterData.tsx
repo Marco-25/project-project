@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react';
 import { Button } from '@material-ui/core';
 import { IClient, IProps } from '../../../services/Interfaces';
-import { BoxButton, Select, BoxColumn, BoxLabel } from './styles';
+import { BoxButton, Select, BoxColumn, BoxLabel, SectionLeft, SectionRight, BoxRow } from './styles';
 import Input from '../../../components/Input';
 
 
@@ -24,12 +24,13 @@ const RegisterData = ({ submitForm }: IProps) => {
     }
 
     useEffect(() => {
-        console.log(types)
     }, [types])
 
     return (
         <>
-
+        <BoxRow>
+            <SectionLeft>
+                <h4>Informações</h4>
             <form onSubmit={handleSubmit}>
                 <Input
                     onChange={handleChange}
@@ -79,20 +80,62 @@ const RegisterData = ({ submitForm }: IProps) => {
                     />
 
                 }
+                </form>
+                </SectionLeft>
 
+                <SectionRight>
+                    <h4>Localização</h4>
+                 <Input
+                    onChange={handleChange}
+                    name="address"
+                    label="Endereço"
+                    />
 
-                <BoxButton>
+                <Input
+                    onChange={handleChange}
+                    name="district"
+                    label="Bairro"
+                />
+
+                <Input
+                    onChange={handleChange}
+                    name="city"
+                    label="Cidade"
+                />
+
+                <Input
+                    onChange={handleChange}
+                    name="zipe_code"
+                    label="CEP"
+                    mask="cep"
+                />
+
+                <Input
+                    onChange={handleChange}
+                    name="state"
+                    label="Estado"
+                />
+
+                <Input
+                    onChange={handleChange}
+                    name="country"
+                    label="País"
+                />
+
+                </SectionRight>
+                </BoxRow>
+                    <BoxButton>
                     <Button
+                        onClick={submitForm}
                         type="submit"
                         variant="contained"
                         size="small"
                         color="primary">
                         proximo
-                </Button>
+                    </Button>
                 </BoxButton>
+                </>
 
-            </form>
-        </>
 
     );
 }

@@ -34,9 +34,8 @@ const Map2 = () => {
             let bubble = new H.ui.InfoBubble(evt.target.getGeometry(), {
                 content: evt.target.getData()
             });
-            // window.ui.addBubble(bubble)
-            bubble.open(this)
-            console.log('clicou')
+            H.ui.UI.prototype.addBubble(bubble)
+            
         });
 
         addMarkerToGroup(group, { lat: -22.2154766, lng: -49.6538883 },

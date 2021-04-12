@@ -5,6 +5,7 @@ import { IClient } from '../../../services/Interfaces';
 import Success from '../../../components/Success';
 import { Container } from '../../../Styled';
 import Menu from '../../../components/Menu';
+import ContactData from './ContactData';
 
 const RegisterClient: React.FC = () => {
     const [currentStep, setCurrentStep] = useState(Number);
@@ -13,6 +14,7 @@ const RegisterClient: React.FC = () => {
 
     const forms = [
         <RegisterData submitForm={collectData} comeBack={prev} />,
+        <ContactData submitForm={collectData} comeBack={prev} />,
         < Success />
     ]
 
@@ -55,7 +57,8 @@ const RegisterClient: React.FC = () => {
             <Menu />
             <Container>
                 <Stepper className="stepper" activeStep={currentStep} >
-                    <Step> <StepLabel>Dados pessoais</StepLabel> </Step>
+                    <Step> <StepLabel> Dados Pessoais </StepLabel>  </Step>
+                    <Step> <StepLabel> Dados de Contato </StepLabel>  </Step>
                 </Stepper>
                 {forms[currentStep]}
             </Container>

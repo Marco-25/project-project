@@ -1,10 +1,10 @@
 import React, { FormEvent, InputHTMLAttributes, useCallback } from 'react';
-import { birthDate, cep, currency, cpf, cnpj } from './masks';
+import { birthDate, cep, currency, cpf, cnpj, cell,phone } from './masks';
 
 import './styles.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    mask?: "cep" | "currency" | "birthDate" | "cpf" | "cnpj",
+    mask?: "cep" | "currency" | "birthDate" | "cpf" | "cnpj" | "cell" | "phone",
     prefix?: string;
     label?: string;
 }
@@ -27,6 +27,13 @@ const Input: React.FC<InputProps> = ({ mask, prefix, label, ...props }) => {
                 break;
             case "cnpj":
                 cnpj(event);
+                break;
+            case "cell":
+                cell(event);
+                break;
+                break;
+            case "phone":
+                phone(event);
                 break;
         }
 

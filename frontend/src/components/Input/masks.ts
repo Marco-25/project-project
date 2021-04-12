@@ -53,3 +53,29 @@ export function cnpj(event: React.FormEvent<HTMLInputElement>) {
     }
     return event;
 }
+
+export function cell(event: React.FormEvent<HTMLInputElement>) {
+    event.currentTarget.maxLength = 17;
+    let value = event.currentTarget.value;
+    if (!value.match(/^(\d{2}).(\d{2}).(\d{1})(\d{4})-(\d{4})$/)) {
+        value = value.replace(/\D/g, "");
+        value = value.replace(/(\d{2})(\d)/, "+$1 $2");
+        value = value.replace(/(\d{2})(\d)/, "$1 $2");
+        value = value.replace(/(\d{4})(\d{4})$/, "$1-$2");
+        event.currentTarget.value = value;
+    }
+    return event;
+}
+
+export function phone(event: React.FormEvent<HTMLInputElement>) {
+    event.currentTarget.maxLength = 16;
+    let value = event.currentTarget.value;
+    if (!value.match(/^(\d{2}).(\d{2}).(\d{4})-(\d{4})$/)) {
+        value = value.replace(/\D/g, "");
+        value = value.replace(/(\d{2})(\d)/, "+$1 $2");
+        value = value.replace(/(\d{2})(\d)/, "$1 $2");
+        value = value.replace(/(\d{4})(\d{4})$/, "$1-$2");
+        event.currentTarget.value = value;
+    }
+    return event;
+}
