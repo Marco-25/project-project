@@ -1,29 +1,30 @@
 import { Button } from "@material-ui/core";
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import {  FormEvent, useCallback, useState } from "react";
 import Input from "../../../components/Input";
 import { IClient, IProps } from "../../../services/Interfaces";
 import {  BoxRow, SectionLeft, SectionRight, BoxButton, BoxTextArea } from "./styles";
 
 
 const ContactData = ({ submitForm, comeBack }: IProps) => {
-    const [user, setUser] = useState<IClient>({} as IClient);
+    const [client, setClient] = useState<IClient>({} as IClient);
 
-    const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setUser({
-            ...user,
-            [event.currentTarget.name]: event.currentTarget.value
+    const handleChange = useCallback((event: any) => {
+        setClient({
+            ...client,
+            [event.target.name]: event.target.value
         });
-    }, [user]);
+    }, [client]);
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        submitForm(user);
+        submitForm(client);
+        console.log('ue')
     }
 
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form method="post" onSubmit={handleSubmit}>
         <BoxRow>
             <SectionLeft>
             <h4>Informações do Contato</h4>
@@ -43,7 +44,7 @@ const ContactData = ({ submitForm, comeBack }: IProps) => {
 
                 <BoxTextArea>
                     <label> Observation </label>
-                    <textarea name="observation" />
+                    <textarea onChange={handleChange} name="observation" />
                 </BoxTextArea>
                 
 
@@ -75,14 +76,14 @@ const ContactData = ({ submitForm, comeBack }: IProps) => {
                     <BoxButton>
                      <Button style={{marginRight: '1rem', background: 'gray'}}
                             onClick={comeBack}
-                            type="submit"
+                            type="button"
                             variant="contained"
                             size="small"
                             color="primary">
                             anterior
                     </Button>
 
-                      <Button
+                      <Button 
                             type="submit"
                             variant="contained"
                             size="small"

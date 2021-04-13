@@ -31,7 +31,6 @@ const Input: React.FC<InputProps> = ({ mask, prefix, label, ...props }) => {
             case "cell":
                 cell(event);
                 break;
-                break;
             case "phone":
                 phone(event);
                 break;

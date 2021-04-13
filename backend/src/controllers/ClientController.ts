@@ -1,14 +1,16 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
+// import { getRepository } from "typeorm";
+// import ClientRepository from "../repositories/ClientRepository";
 
 
 class ClientController {
 
     static create(request: Request, response: Response) {
-        // const clientRepository = getRepository(clientRepository)
+        // const clientRepository = getRepository(ClientRepository)
         const body = request.body;
-
         try {
+
+            response.json(body)
 
             
         } catch (error) {

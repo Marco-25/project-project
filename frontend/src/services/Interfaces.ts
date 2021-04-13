@@ -31,18 +31,14 @@ export interface IClient {
     CNPJ?: string;
     address: string;
     district: string;
-    City: string;
-    Zip_code: string;
+    city: string;
+    zip_code: string;
     state: string;
     country: string;
-
     contact_name: string;
     email: string;
     observation: string;
-
-    DDI_telephone: string;
     telephone_number: string;
-    DDI_cell: string;
     cell: string;
 
 }

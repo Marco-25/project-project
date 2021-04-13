@@ -53,13 +53,7 @@ class Clients {
     observation: string;
 
     @Column()
-    DDI_telephone: string;
-
-    @Column()
     telephone_number: string;
-
-    @Column()
-    DDI_cell: string;
 
     @Column()
     cell: string;

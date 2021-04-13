@@ -28,7 +28,7 @@ export class CreateClient1618258783778 implements MigrationInterface {
                     },
                     {
                         name: 'released',
-                        type: 'varchar',
+                        type: 'boolean',
                     },
                     {
                         name: 'CPF',
@@ -75,15 +75,7 @@ export class CreateClient1618258783778 implements MigrationInterface {
                         type: 'text',
                     },
                     {
-                        name: 'DDI_telephone',
-                        type: 'varchar',
-                    },
-                    {
                         name: 'telephone_number',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'DDI_cell',
                         type: 'varchar',
                     },
                     {

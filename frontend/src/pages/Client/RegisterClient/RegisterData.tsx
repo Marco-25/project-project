@@ -1,36 +1,35 @@
-import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react';
+import {  FormEvent, useCallback, useEffect, useState } from 'react';
 import { Button } from '@material-ui/core';
 import { IClient, IProps } from '../../../services/Interfaces';
 import { BoxButton, Select, BoxColumn, BoxLabel, SectionLeft, SectionRight, BoxRow } from './styles';
 import Input from '../../../components/Input';
 
 
-
-
 const RegisterData = ({ submitForm }: IProps) => {
-    const [user, setUser] = useState<IClient>({} as IClient);
+    const [client, setClient] = useState<IClient>({} as IClient);
     const [types, setTypes] = useState(String);
 
-    const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setUser({
-            ...user,
-            [event.currentTarget.name]: event.currentTarget.value
+    const handleChange = useCallback((event:any) => {
+        setClient({
+            ...client,
+           [event.target.name]: event.target.value
         });
-    }, [user]);
+    }, [client]);
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        submitForm(user);
+        submitForm(client);
+        console.log('foi');
+
     }
 
-    useEffect(() => {
-    }, [types])
+    useEffect(() => { }, [types])
 
     return (
         <>
         <BoxRow>
             <SectionLeft>
-                <h4>Informações</h4>
+            <h4>Informações</h4>
             <form onSubmit={handleSubmit}>
                 <Input
                     onChange={handleChange}
@@ -49,7 +48,10 @@ const RegisterData = ({ submitForm }: IProps) => {
                 <BoxColumn>
                     <BoxLabel>
                         <label>Tipo</label>
-                        <Select name="type" onClick={(e) => setTypes(e.currentTarget.value)}>
+                        <Select name="type" 
+                        onClick={(e) => setTypes(e.currentTarget.value)}
+                        onChange={handleChange} 
+                        >
                             <option value="fisica"> Fisica </option>
                             <option value="juridica"> Juridica </option>
 
@@ -58,9 +60,9 @@ const RegisterData = ({ submitForm }: IProps) => {
 
                     <BoxLabel>
                         <label>Liberado</label>
-                        <Select name="released">
-                            <option value="sim"> Sim </option>
-                            <option value="nao"> Não </option>
+                        <Select name="released" onChange={handleChange} >
+                            <option value="1"> Sim </option>
+                            <option value="0"> Não </option>
                         </Select>
                     </BoxLabel>
                 </BoxColumn>
