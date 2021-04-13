@@ -5,7 +5,7 @@ import { BoxButton, Select, BoxColumn, BoxLabel, SectionLeft, SectionRight, BoxR
 import Input from '../../../components/Input';
 
 
-const RegisterData = ({ submitForm }: IProps) => {
+const RegisterDataUpdate = ({ submitForm }: IProps) => {
     const [client, setClient] = useState<IClient>({} as IClient);
     const [types, setTypes] = useState(String);
 
@@ -143,4 +143,4 @@ const RegisterData = ({ submitForm }: IProps) => {
     );
 }
 
-export default RegisterData;
+export default RegisterDataUpdate;

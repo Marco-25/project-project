@@ -10,6 +10,7 @@ import Client from '../pages/Client';
 import Driver from '../pages/Driver';
 import Equipments from '../pages/Equipments';
 import RegisterClient from '../pages/Client/RegisterClient';
+import UpdateClient from '../pages/Client/UpdateClient';
 
 const Routes: React.FC = () => {
 
@@ -20,7 +21,8 @@ const Routes: React.FC = () => {
             <PrivateRoute path="/map" component={Map3} />
             <PrivateRoute path="/map2" component={Map2} />
             <PrivateRoute path="/clientes" component={Client} />
-            <PrivateRoute path="/clientes_cadastro/:id" component={RegisterClient} />
+            <PrivateRoute path="/clientes_cadastro" component={RegisterClient} />
+            <PrivateRoute path="/clientes_alterar/:id" component={UpdateClient} />
 
             <PrivateRoute path="/motorista" component={Driver} />
             <PrivateRoute path="/equipamentos" component={Equipments} />

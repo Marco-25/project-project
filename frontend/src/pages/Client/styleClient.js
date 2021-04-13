@@ -61,11 +61,14 @@ export const TableGeneric = styled.table`
             text-align: left;
             border-bottom: 1px solid #bcbcbc;
             cursor: pointer;
-            ${props => props.isselect === 'true' && {
-        background: 'red',
+            
+
+           ${props => props.select === 'true' && {
+        background: '#d6d',
         color: 'white',
         border: '1px solid black'
     }
+        
     }
 
             td {
@@ -77,6 +80,8 @@ export const TableGeneric = styled.table`
             }
         }
     }
+
+    tr:hover {background-color: #eeeeee}
 
     @media screen and (max-width: 768px) {
         width:100%!important;

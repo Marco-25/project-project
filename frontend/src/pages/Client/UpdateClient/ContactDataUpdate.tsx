@@ -5,7 +5,7 @@ import { IClient, IProps } from "../../../services/Interfaces";
 import {  BoxRow, SectionLeft, SectionRight, BoxButton, BoxTextArea } from "./styles";
 
 
-const ContactData = ({ submitForm, comeBack }: IProps) => {
+const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
     const [client, setClient] = useState<IClient>({} as IClient);
 
     const handleChange = useCallback((event: any) => {
@@ -95,4 +95,4 @@ const ContactData = ({ submitForm, comeBack }: IProps) => {
     );
 }
 
-export default ContactData;
+export default ContactDataUpdate;
