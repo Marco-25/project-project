@@ -1,7 +1,7 @@
+import { Container } from '@material-ui/core';
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useAuth } from '../../context/AuthContext';
-import { ContainerFull } from '../../Styled';
 import { Box, FormLogin, Logo, InputLogin, ButtonLogin } from './styleLogin';
 
 const Login: React.FC = () => {
@@ -21,7 +21,7 @@ const Login: React.FC = () => {
   }, [username, password, history, signIn]);
 
   return (
-    <ContainerFull>
+    <Container>
       <Box>
         <Logo src="images/logo_fulltrack.png" alt="logo" />
         <FormLogin
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
           <ButtonLogin type="submit"> Entrar</ButtonLogin>
         </FormLogin>
       </Box>
-    </ContainerFull>
+    </Container>
   );
 }
 
