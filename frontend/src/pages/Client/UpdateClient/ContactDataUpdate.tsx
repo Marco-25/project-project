@@ -1,11 +1,11 @@
 import { Button } from "@material-ui/core";
 import {  FormEvent, useCallback, useState } from "react";
 import Input from "../../../components/Input";
-import { IClient, IProps } from "../../../services/Interfaces";
+import { IClient,IPropsEditClient } from "../../../services/Interfaces";
 import {  BoxRow, SectionLeft, SectionRight, BoxButton, BoxTextArea } from "./styles";
 
 
-const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
+const ContactDataUpdate = ({ submitForm, comeBack, data }: IPropsEditClient) => {
     const [client, setClient] = useState<IClient>({} as IClient);
 
     const handleChange = useCallback((event: any) => {
@@ -20,7 +20,6 @@ const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
         submitForm(client);
     }
 
-
     return (
         <>
         <form method="post" onSubmit={handleSubmit}>
@@ -29,6 +28,7 @@ const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
             <h4>Informações do Contato</h4>
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.contact_name}
                     name="contact_name"
                     label="Nome de Contato"
                     required
@@ -36,6 +36,7 @@ const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
 
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.email}
                     name="email"
                     label="E-mail"
                     required
@@ -43,7 +44,8 @@ const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
 
                 <BoxTextArea>
                     <label> Observation </label>
-                    <textarea onChange={handleChange} name="observation" />
+                    <textarea onChange={handleChange}
+                    defaultValue={data.observation} name="observation" />
                 </BoxTextArea>
                 
                 </SectionLeft>
@@ -52,6 +54,7 @@ const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
                     <h4>Discagem</h4>
                  <Input
                     onChange={handleChange}
+                    defaultValue={data.telephone_number}
                     name="telephone_number"
                     label="Número do Telefone"
                     placeholder="55 14 3333-3303"
@@ -60,6 +63,7 @@ const ContactDataUpdate = ({ submitForm, comeBack }: IProps) => {
 
                  <Input
                     onChange={handleChange}
+                    defaultValue={data.cell}
                     name="cell"
                     label="Celular"
                     mask="cell"

@@ -32,10 +32,10 @@ class Clients {
     district: string;
 
     @Column()
-    City: string;
+    city: string;
 
     @Column()
-    Zip_code: string;
+    zip_code: string;
 
     @Column()
     state: string;

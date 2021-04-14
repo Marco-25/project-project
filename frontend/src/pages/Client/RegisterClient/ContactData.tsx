@@ -59,6 +59,7 @@ const ContactData = ({ submitForm, comeBack }: IProps) => {
                     />
 
                  <Input
+                    required
                     onChange={handleChange}
                     name="cell"
                     label="Celular"

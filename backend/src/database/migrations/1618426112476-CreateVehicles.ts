@@ -1,100 +1,81 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateClient1618258783778 implements MigrationInterface {
+export class CreateTrackers1618424645230 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'clients',
+                name: 'vehicles',
                 columns: [
                     {
-                         name: "id",
-                        type: "int",
+                        name: 'id',
+                        type: 'int',
                         isPrimary: true,
                         isGenerated: true,
                         generationStrategy: "increment",
+                           
                     },
                     {
-                        name: 'company_name',
+                        name: 'year',
                         type: 'varchar',
+                        default: '2020'
                     },
                     {
-                        name: 'fantasy_name',
-                        type: 'varchar'
+                        name: 'color',
+                        type: 'varchar',
+                        default: 'preto',
                     },
                     {
                         name: 'type',
-                        type: 'string'
+                        type: 'varchar',
+                        default: 'carro',
                     },
                     {
-                        name: 'released',
+                        name: 'brand',
                         type: 'varchar',
+                        default: 'ford',
                     },
                     {
-                        name: 'CPF',
+                        name: 'model',
                         type: 'varchar',
+                        default: '2018',
                     },
                     {
-                        name: 'CNPJ',
+                        name: 'tank',
                         type: 'varchar',
+                        default: '12',
                     },
                     {
-                        name: 'address',
+                        name: 'fuel',
                         type: 'varchar',
+                        default: 'gasolina',
                     },
                     {
-                        name: 'district',
+                        name: 'renavam',
                         type: 'varchar',
-                    },
-                    {
-                        name: 'city',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'zip_code',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'state',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'country',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'contact_name',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'email',
-                        type: 'varchar',
+                        default: 'gasolina',
                     },
                     {
                         name: 'observation',
                         type: 'text',
                     },
                     {
-                        name: 'telephone_number',
+                        name: 'he_scores',
                         type: 'varchar',
-                    },
-                    {
-                        name: 'cell',
-                        type: 'varchar',
+                        default: 'yde-1202',
                     },
                     {
                         name: 'created',
                         type: 'timestamp',
                         default: 'now()'
                     }
-
                 ]
             })
-        )
+        );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('clients');
+        await queryRunner.dropTable('vehicles');
     }
 
 }

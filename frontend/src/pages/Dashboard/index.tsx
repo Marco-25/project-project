@@ -1,6 +1,6 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
 import Menu from '../../components/Menu';
-import { Container } from '../../Styled';
 
 const Dashboard: React.FC = () => {
 

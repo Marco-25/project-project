@@ -1,3 +1,6 @@
+export interface IId {
+    id:string;
+}
 export interface IUsers {
     id?: number;
     name: string;
@@ -41,4 +44,25 @@ export interface IClient {
     telephone_number: string;
     cell: string;
 
+}
+export interface IVehicles {
+    id: number;
+    year: string;
+    color: string;
+    type: string;
+    brand: string;
+    model: string;
+    tank: string;
+    fuel: string;
+    renavam: string;
+    observation: string;
+    he_scores: string;
+}
+
+export interface ITrackers {
+    id: number;
+    manufacturer: string;
+    tag: string;
+    chip_number: string;
+    operator: string;
 }

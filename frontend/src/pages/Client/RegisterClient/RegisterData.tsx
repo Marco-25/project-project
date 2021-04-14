@@ -61,20 +61,22 @@ const RegisterData = ({ submitForm }: IProps) => {
                     <BoxLabel>
                         <label>Liberado</label>
                         <Select name="released" onChange={handleChange} >
-                            <option value="0"> Não </option>
-                            <option value="1"> Sim </option>
+                            <option value="Não"> Não </option>
+                            <option value="Sim"> Sim </option>
                         </Select>
                     </BoxLabel>
                 </BoxColumn>
 
                 {types === 'juridica' ?
                     <Input
+                        required
                         onChange={handleChange}
                         name="CNPJ"
                         label="CNPJ"
                         mask="cnpj" /> :
 
                     <Input
+                        required
                         onChange={handleChange}
                         name="CPF"
                         label="CPF"
@@ -88,24 +90,28 @@ const RegisterData = ({ submitForm }: IProps) => {
                 <SectionRight>
                     <h4>Localização</h4>
                  <Input
+                    required
                     onChange={handleChange}
                     name="address"
                     label="Endereço"
                     />
 
                 <Input
+                    required
                     onChange={handleChange}
                     name="district"
                     label="Bairro"
                 />
 
                 <Input
+                    required
                     onChange={handleChange}
                     name="city"
                     label="Cidade"
                 />
 
                 <Input
+                    required
                     onChange={handleChange}
                     name="zipe_code"
                     label="CEP"
@@ -113,12 +119,14 @@ const RegisterData = ({ submitForm }: IProps) => {
                 />
 
                 <Input
+                    required
                     onChange={handleChange}
                     name="state"
                     label="Estado"
                 />
 
                 <Input
+                    required
                     onChange={handleChange}
                     name="country"
                     label="País"

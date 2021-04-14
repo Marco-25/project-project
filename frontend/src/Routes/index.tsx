@@ -7,10 +7,10 @@ import Map3 from '../pages/Map3';
 import Map2 from '../pages/Map2';
 import Error from '../components/Error';
 import Client from '../pages/Client';
-import Driver from '../pages/Driver';
-import Equipments from '../pages/Equipments';
 import RegisterClient from '../pages/Client/RegisterClient';
 import UpdateClient from '../pages/Client/UpdateClient';
+import Vehicles from '../pages/Vehicles';
+import Tracker from '../pages/Tracker';
 
 const Routes: React.FC = () => {
 
@@ -24,8 +24,10 @@ const Routes: React.FC = () => {
             <PrivateRoute path="/clientes_cadastro" component={RegisterClient} />
             <PrivateRoute path="/clientes_alterar/:id" component={UpdateClient} />
 
-            <PrivateRoute path="/motorista" component={Driver} />
-            <PrivateRoute path="/equipamentos" component={Equipments} />
+            <PrivateRoute path="/veiculos" component={Vehicles} />
+
+            <PrivateRoute path="/veiculos" component={Tracker} />
+
 
             <Route>
                 <Error />

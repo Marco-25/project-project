@@ -1,11 +1,11 @@
 import {  FormEvent, useCallback, useEffect, useState } from 'react';
 import { Button } from '@material-ui/core';
-import { IClient, IProps } from '../../../services/Interfaces';
+import { IClient, IPropsEditClient } from '../../../services/Interfaces';
 import { BoxButton, Select, BoxColumn, BoxLabel, SectionLeft, SectionRight, BoxRow } from './styles';
 import Input from '../../../components/Input';
 
 
-const RegisterDataUpdate = ({ submitForm }: IProps) => {
+const RegisterDataUpdate = ({ submitForm, data }: IPropsEditClient) => {
     const [client, setClient] = useState<IClient>({} as IClient);
     const [types, setTypes] = useState(String);
 
@@ -34,6 +34,7 @@ const RegisterDataUpdate = ({ submitForm }: IProps) => {
                     onChange={handleChange}
                     name="company_name"
                     label="Razão Social / Nome"
+                    defaultValue={data.company_name}
                     required
                 />
 
@@ -41,13 +42,15 @@ const RegisterDataUpdate = ({ submitForm }: IProps) => {
                     onChange={handleChange}
                     name="fantasy_name"
                     label="Nome Fantasia"
+                    defaultValue={data.fantasy_name}
                     required
                 />
 
                 <BoxColumn>
                     <BoxLabel>
                         <label>Tipo</label>
-                        <Select name="type" 
+                        <Select name="type"
+                        defaultValue={data.type}
                         required
                         onClick={(e) => setTypes(e.currentTarget.value)}
                         onChange={handleChange} 
@@ -60,9 +63,9 @@ const RegisterDataUpdate = ({ submitForm }: IProps) => {
 
                     <BoxLabel>
                         <label>Liberado</label>
-                        <Select name="released" onChange={handleChange} >
-                            <option value="0"> Não </option>
-                            <option value="1"> Sim </option>
+                        <Select name="released" onChange={handleChange} defaultValue={data.released} >
+                            <option value="Não"> Não </option>
+                            <option value="Sim"> Sim </option>
                         </Select>
                     </BoxLabel>
                 </BoxColumn>
@@ -70,12 +73,14 @@ const RegisterDataUpdate = ({ submitForm }: IProps) => {
                 {types === 'juridica' ?
                     <Input
                         onChange={handleChange}
+                        defaultValue={data.CNPJ}
                         name="CNPJ"
                         label="CNPJ"
                         mask="cnpj" /> :
 
                     <Input
                         onChange={handleChange}
+                        defaultValue={data.CPF}
                         name="CPF"
                         label="CPF"
                         mask="cpf"
@@ -89,24 +94,28 @@ const RegisterDataUpdate = ({ submitForm }: IProps) => {
                     <h4>Localização</h4>
                  <Input
                     onChange={handleChange}
+                    defaultValue={data.address}
                     name="address"
                     label="Endereço"
                     />
 
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.district}
                     name="district"
                     label="Bairro"
                 />
 
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.city}
                     name="city"
                     label="Cidade"
                 />
 
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.zip_code}
                     name="zipe_code"
                     label="CEP"
                     mask="cep"
@@ -114,12 +123,14 @@ const RegisterDataUpdate = ({ submitForm }: IProps) => {
 
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.state}
                     name="state"
                     label="Estado"
                 />
 
                 <Input
                     onChange={handleChange}
+                    defaultValue={data.country}
                     name="country"
                     label="País"
                 />

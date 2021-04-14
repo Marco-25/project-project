@@ -1,41 +1,50 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Stepper, Step, StepLabel } from '@material-ui/core';
-import { IClient } from '../../../services/Interfaces';
-import Success from '../../../components/Success';
-import { Container } from '../../../Styled';
+import { Stepper, Step, StepLabel,Container } from '@material-ui/core';
+import { IClient, IId } from '../../../services/Interfaces';
 import Menu from '../../../components/Menu';
 import { api } from '../../../services/api';
 import RegisterDataUpdate from './RegisterDataUpdate';
 import ContactDataUpdate from './ContactDataUpdate';
+import { useHistory, useParams } from 'react-router';
+import { Box } from '../../../Styled';
 
 const UpdateClient: React.FC = () => {
     const [currentStep, setCurrentStep] = useState(Number);
     const [client, setClient] = useState<IClient>({} as IClient);
+    const [data, setData] = useState<IClient>({} as IClient);
+    const [render, setRender] = useState(true);
+    const params = useParams<IId>();
+
+    const history = useHistory();
 
 
     const forms = [
-        <RegisterDataUpdate submitForm={collectData} />,
-        <ContactDataUpdate submitForm={collectData} comeBack={prev} />,
-        < Success />
+        <RegisterDataUpdate submitForm={collectData} data={data} />,
+        <ContactDataUpdate submitForm={collectData} comeBack={prev} data={data} />,
     ]
 
     const handleSubmit = useCallback(async () => {
-        await api.post('/clients', client)
-          .then(() => console.log("Cadstro realizado"))
-          .catch(console.log)
+        await api.put(`/clients/${Number(params.id)}`, client)
+          .then(() => console.log("Cadastro atualizado!"))
+          .catch(console.log);
+          history.push('/clientes');
+    }, [client,history, params.id]);
 
-    }, [client])
-
-    const reset = useCallback(() => {
-        setCurrentStep(0);
-    }, []);
+    const handleData = useCallback(async ()=> {
+        if (render) {
+            await api.get(`/clients/${Number(params.id)}`)
+                .then((res) => setData(res.data)); 
+                setRender(false);
+        }  
+    },[params.id,render]);
 
     useEffect(() => {
-        if (currentStep === forms.length - 1) {
+        handleData();
+        if (currentStep === forms.length ) {
             handleSubmit();
-            setTimeout(reset, 3000);
         }
-    }, [currentStep, forms.length, handleSubmit, reset]);
+        
+    }, [currentStep, forms.length, handleSubmit,handleData]);
 
 
 
@@ -55,6 +64,7 @@ const UpdateClient: React.FC = () => {
     return (
         <>
             <Menu />
+            <Box>
             <Container>
                 <Stepper className="stepper" activeStep={currentStep} >
                     <Step> <StepLabel> Dados Pessoais </StepLabel>  </Step>
@@ -62,7 +72,7 @@ const UpdateClient: React.FC = () => {
                 </Stepper>
                 {forms[currentStep]}
             </Container>
-
+            </Box>
         </>
     );
 }

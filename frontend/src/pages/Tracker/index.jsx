@@ -14,7 +14,7 @@ import {BoxButton} from './styleClient';
 import { Button } from '@material-ui/core';
 import { BodyModal, ButtonCancel, ButtonDel, ButtonModal, ContainerModal, Overlay, TitleModal } from '../../components/Modal';
 
-const Client = () => {
+const Tracker = () => {
     const [client, setClients] = useState([]);
     const [id, setId] = useState(Number);
     const history = useHistory();
@@ -144,4 +144,4 @@ const Client = () => {
     );
 }
 
-export default Client;
+export default Tracker;
