@@ -1,11 +1,11 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateClient1618258783778 implements MigrationInterface {
+export class driversCreate1618489754354 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.createTable(
+         await queryRunner.createTable(
             new Table({
-                name: 'clients',
+                name: 'drivers',
                 columns: [
                     {
                          name: "id",
@@ -15,28 +15,16 @@ export class CreateClient1618258783778 implements MigrationInterface {
                         generationStrategy: "increment",
                     },
                     {
-                        name: 'company_name',
+                        name: 'name',
                         type: 'varchar',
                     },
                     {
-                        name: 'fantasy_name',
+                        name: 'CNH',
                         type: 'varchar'
                     },
                     {
-                        name: 'type',
-                        type: 'string'
-                    },
-                    {
-                        name: 'released',
-                        type: 'varchar',
-                    },
-                    {
                         name: 'CPF',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'CNPJ',
-                        type: 'varchar',
+                        type: 'varchar'
                     },
                     {
                         name: 'address',
@@ -59,23 +47,7 @@ export class CreateClient1618258783778 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
-                        name: 'country',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'contact_name',
-                        type: 'varchar',
-                    },
-                    {
                         name: 'email',
-                        type: 'varchar',
-                    },
-                    {
-                        name: 'observation',
-                        type: 'text',
-                    },
-                    {
-                        name: 'telephone_number',
                         type: 'varchar',
                     },
                     {
@@ -94,7 +66,7 @@ export class CreateClient1618258783778 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('clients');
+        await queryRunner.dropTable('drivers');
     }
 
 }

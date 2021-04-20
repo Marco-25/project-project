@@ -32,9 +32,9 @@ const Menu: React.FC = () => {
                     </Span>
                     {subMenu &&
                         <BoxLink>
-                            <Link to="/clientes" > <i className="fas fa-angle-double-right"></i>Clientes</Link>
+                            <Link to="/motoristas" > <i className="fas fa-angle-double-right"></i>Motoristas</Link>
                             <Link to="/veiculos" > <i className="fas fa-angle-double-right"></i> Veiculos</Link>
-                            <Link to="/equipamentos" > <i className="fas fa-angle-double-right"></i> Equipamentos</Link>
+                            <Link to="/rastreadores" > <i className="fas fa-angle-double-right"></i> Rastreadores</Link>
                         </BoxLink>
                     }
 

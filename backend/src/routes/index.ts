@@ -1,15 +1,22 @@
 import express from 'express';
 import user from './userRoute';
 import auth from './authenticationRoute';
-import client from './clientRoute ';
+import driver from './driverRoute ';
+import vehicle from './vehicleRouter';
+import tracker from './trackerRoute';
+import historic from './historicRouter';
+import types from './typeRoute';
 
 export default (app: any) => {
     app.use(
         express.json(),
         auth,
         user,
-        client
-
+        driver,
+        vehicle,
+        tracker,
+        historic,
+        types
     )
 }
 

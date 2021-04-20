@@ -24,24 +24,17 @@ export interface IPropsEditClient {
 }
 
 
-export interface IClient {
+export interface IDriver {
     id: number;
-    company_name: string;
-    fantasy_name: string;
-    type: string;
-    released: string;
+    name: string;
     CPF?: string;
-    CNPJ?: string;
+    CNH?: string;
     address: string;
     district: string;
     city: string;
     zip_code: string;
     state: string;
-    country: string;
-    contact_name: string;
     email: string;
-    observation: string;
-    telephone_number: string;
     cell: string;
 
 }
@@ -61,8 +54,37 @@ export interface IVehicles {
 
 export interface ITrackers {
     id: number;
+    name: string;
     manufacturer: string;
     tag: string;
     chip_number: string;
     operator: string;
+}
+
+
+
+
+
+
+// apagar depois
+export interface IClient {
+    id: number;
+    name: string;
+    fantasy_name: string;
+    type: string;
+    released: string;
+    CPF?: string;
+    CNPJ?: string;
+    address: string;
+    district: string;
+    city: string;
+    zip_code: string;
+    state: string;
+    country: string;
+    contact_name: string;
+    email: string;
+    observation: string;
+    telephone_number: string;
+    cell: string;
+
 }
